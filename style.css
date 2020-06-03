@@ -38,14 +38,22 @@ body {
   width: 100%;
   left: 0%;
   height: 1px;
-  background-color: red;
+  background-color: currentColor; /*hereda el color*/
   visibility: hidden;
   transform: scale(0);
   bottom: -30px;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.15s;
+}
+
+.input-form input:focus + label::after,/*hermanos*/
+.input-form input.non-empty + label::after {
+  transform: scale(1);
+  visibility: visible;
 }
 
 .input-form input:valid + label {
-  color: #1565c0;
+  color: green;
 }
 
 .input-form input:invalid + label {
